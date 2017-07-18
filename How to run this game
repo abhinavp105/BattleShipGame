@@ -1,0 +1,16 @@
+
+	Run Instructions:
+
+1.Create a text file with the input format specified in the inputFormat.txt
+2.Pass the path of the text file in the  com.thoughtworks.test.battleship.game.util.InputReaderUtil.executeByFilePath method.(Please make sure to pass path with proper escape characters)
+3.This method will create both the players and all the necessary configuration and run the program and you will be able to see the output on your console screen. 
+
+Note:
+1.This is a maven project and it only contains junit dependency (I wanted to add junit test cases but i couldnt due lack of time but i have added InputReaderUtil class for text file tesing and also excuted the test cases againsts the sample input given in
+in the problem statement.)
+2.The sample text input file is in resources folder as :
+	/resources/inputToGameBattle.txt
+I will also attach input file along with the email.
+
+jdk version:1.7
+ 
