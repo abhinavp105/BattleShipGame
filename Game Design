@@ -1,0 +1,147 @@
+
+
+The design consits of 3 objects
+
+1.BattleShip
+
+  Fields:
+	1.
+	Field Name: battleShipType 
+	Field Type:BattleshipType (enum)
+	
+	Description:To store the type of battleShip (i.e. Q or P)
+	
+	2.
+	Field Name: numberOfCells 
+	Field Type:int 
+	
+	Description:To store the number of cells in this battleship.
+	
+
+2.Cell
+
+	  Fields:
+	1.
+	Field Name: isBattleship 
+	Field Type:boolean 
+	
+	Description:indicates if this cell is active part of a battleship or not.  
+	
+	2.
+	Field Name: battleShip	 
+	Field Type:BattleShip 
+	
+	Description:Refer to BattleShip object.
+	
+3.Player
+
+	  Fields:
+	1.
+	Field Name: playerName 
+	Field Type:String 
+	
+	Description:Stores the name of the player.  
+	
+	2.
+	Field Name: numberOfbattleShips	 
+	Field Type:int 
+	
+	Description:How many battleship this player has.
+	
+	2.
+	Field Name: battlefield	 
+	Field Type:Cell[][] 
+	
+	Description:It represents the 2D matrix of battlefield.
+	
+	
+	 Methods:
+
+	1.
+	Method Name:initBattlefield(char x, int yDim)	
+	Method Return Type:void
+	
+	Description:This method will initialize the battlefield matrix with default objects of cell as non battleshipType.
+
+	2.
+	Method Name:fillBattleField(BattleshipType type, int len, int wid, String position)	
+	Method Return Type:void
+	
+	Description:This method will install battleships in the battlefield matirx by using len ,wid,position and type.
+	
+	
+	
+4.Player
+
+	  Fields:
+	1.
+	Field Name: playerName 
+	Field Type:String 
+	
+	Description:Stores the name of the player.  
+	
+	2.
+	Field Name: numberOfbattleShips	 
+	Field Type:int 
+	
+	Description:How many battleship this player has.
+	
+	
+	
+		Factory Classes:
+		
+		1.PlayerFactory
+		
+		Description:This class contains methods to attack and to check if a player has lost the match or not.
+		
+		Methods:
+		
+		1.
+		Method Name:attackCell(BattleshipType type, int len, int wid, String position)	
+		Method Return Type:boolean
+		(static method)
+	
+		Description:This method will take cellId(i.e. cell cordinates as given in dummy inputs (A1 ,B2 ..etc.)) and player object of the player to be attacked as params
+				and will attack the player at the given cell and reduce cells power by one.
+				if cells power becomes zero then 1 cell count is reduced from the total cells count of the battleship and if total cell count also becomes zero and cell is made inactive then 
+				total ship count is reduced from the player object.
+				
+				Method returns true if it has successfully attacked a player cell.else returns false.
+				
+				
+		2.
+		Method Name:hasLost(Player player)	
+		Method Return Type:boolean
+		(static method)
+		Description:Checks if the player has lost or not.
+		
+		
+		
+		Game Controller Class:
+		
+			BattleGround
+			
+			Description:This class will actully controll the game.it will call attackCell on player1 and playe2 according to the rules given in the problem.
+						It will display the result of each attack made by player1 and playe2 as given in the sample output of the problem.
+						
+			
+			Methods:
+				1.
+				Name: playGame(String[] player1Moves, String[] player2Moves, Player player1, Player player2)
+				Return type:String (the final announcement of the winner or draw).
+				
+				Description:This method will attack player1 and player2 according to the rules of the problem statement.and once the final result is obtained it will return the output as String.
+				
+				
+				2.
+				Name: makeTheMove(Player playerToBeAttacked, Player attackingPlayer, String[] playerMoves, int pCounter)
+				Return type: This method returns the current position of the the move of player1 or player2 in player1Moves or player2Moves arrays. 
+				
+				Description: This method will actully make each and every move to attack player1 or player2
+			
+			
+			
+	OutputFormat:
+
+		1.Program will print output of each and every record as given in the problem statement.
+		2.End of the output should be the final announcement of the winner or draw.
